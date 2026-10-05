@@ -24,19 +24,32 @@ p {
 
 body {
     background-color: #000000;
+    position: relative;
 }
 
-/* BG Pattern */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
 
-#patterns {
-    position: absolute;
-    width: 100%;
-    height: 100%;
     background-color: #120a0a;
     opacity: 0.18;
-    background-image:  linear-gradient(#e7e7e7 1.2000000000000002px, transparent 1.2000000000000002px), linear-gradient(to right, #e7e7e7 1.2000000000000002px, #120a0a 1.2000000000000002px);
+
+    background-image:
+        linear-gradient(#e7e7e7 1.2px, transparent 1.2px),
+        linear-gradient(to right, #e7e7e7 1.2px, #120a0a 1.2px);
+
     background-size: 28px 28px;
-    z-index: -99;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+#headerTitleContainer,
+#headerImageWrapper,
+#headerDescription {
+    position: relative;
+    z-index: 1;
 }
 
 /* HEADER TITLE CONTAINER */
@@ -118,6 +131,16 @@ body {
     font-weight: 500;
     font-size: 24px;
 }
+
+#heroText:nth-child(2), #heroText:nth-child(4) {
+    margin-left: 35px;
+    margin-top: 10px;
+}
+
+
+
+
+/* RESPONSIVE */
 
 @media (max-width: 425px) {
 
